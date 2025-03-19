@@ -1,0 +1,73 @@
+@layer reset {
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    margin: unset;
+  }
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+  img,
+  picture,
+  svg,
+  canvas {
+    /* display: block; */
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+:root{
+  --orange: #ef9587;
+  --blue-dark: #526D96;
+}
+.wallet-container{
+  background-color: #eef2ff;
+  width: 30vw;
+  height: 55vh;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.button-custom{
+  padding: 0.6rem 1.5rem;
+  background-color: var(--orange);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.button-custom-loading{
+  width: 200px;
+  height: 50px;
+  background-color: var(--orange);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-header{
+  background-color: var(--blue-dark);
+}
