@@ -23,6 +23,18 @@
     max-inline-size: 100%;
     block-size: auto;
   }
+  h1{
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  h3{
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -35,8 +47,18 @@
   }
 }
 :root{
-  --orange: #ef9587;
-  --blue-dark: #526D96;
+  --orange: #F9612E;
+  --blue-dark: #3F76CA;
+  --very-light-blue: #EEF2FF;
+  --white: #fff;
+  --black: #000;
+  --dark-orange: #DC5E34;
+}
+body{
+  font-family: "Inter", sans-serif;
+}
+main{
+  min-height: 70vh;
 }
 .wallet-container{
   background-color: #eef2ff;
@@ -56,6 +78,14 @@
   font-size: 1.3rem;
   font-weight: 500;
   color: #fff;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background-color: var(--dark-orange);
+  }
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .button-custom-loading{
@@ -63,11 +93,38 @@
   height: 50px;
   background-color: var(--orange);
   border: none;
-  border-radius: 10px;
+  border-radius: 100px;
   outline: none;
   cursor: pointer;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--white);
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background-color: var(--dark-orange);
+  }
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .custom-header{
   background-color: var(--blue-dark);
+}
+footer{
+  background-color: var(--blue-dark);
+}
+
+.custom-form{
+  background-color: var(--very-light-blue);
+}
+.form-field{
+  input{
+    width: 400px;
+    height: 50px;
+    border-radius: 0.5rem;
+    border: 2px solid var(--black);
+    padding-left: 1rem;
+  }
 }

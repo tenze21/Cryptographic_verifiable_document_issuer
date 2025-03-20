@@ -1,7 +1,7 @@
 import { useAccount } from "wagmi";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Button, Image, Spinner } from "react-bootstrap";
+import { Image, Spinner } from "react-bootstrap";
 import WalletOptions from "../components/wallet-options";
 import { config } from "../wagmi_config";
 

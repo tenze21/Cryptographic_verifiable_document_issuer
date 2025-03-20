@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import store from "./store.js";
 import WalletConnectPage from "./pages/WalletConnectPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import CompileMarksheetsPage from "./pages/CompileMarksheetsPage.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 import {
   createBrowserRouter,
@@ -20,6 +22,9 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route index={true} element={<WalletConnectPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="" element={<PrivateRoute/>}>
+        <Route path="/compileMarksheets" element={<CompileMarksheetsPage />} />
+      </Route>
     </Route>
   )
 );
