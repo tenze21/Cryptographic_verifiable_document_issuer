@@ -14,7 +14,7 @@
 ```
 npm i -g pnpm
 ```
- 
+
 - Clone repository.
     ```
     git clone https://github.com/tenze21/Cryptographic_verifiable_document_issuer.git
@@ -39,6 +39,17 @@ npm i -g pnpm
 - Install server dependencies
     ```
     pnpm i
+    ```
+- Set up enviroment variables.
+
+    **Create a *variables.env* folder in the server folder and include the following:**
+
+    ```
+    JWT_SECRET= <a_random_string>
+    PORT= <port>
+    NODE_ENV=development
+    ADMIN_ADDRESS= <admin_address>
+    MONGO_URI= <mongo_uri>
     ```
 - Start server 
     ```
