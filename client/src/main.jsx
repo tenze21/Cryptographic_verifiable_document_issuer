@@ -23,7 +23,7 @@ const router = createBrowserRouter(
       <Route index={true} element={<WalletConnectPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="" element={<PrivateRoute/>}>
-        <Route path="/compileMarksheets" element={<CompileMarksheetsPage />} />
+        <Route path="/compile-marksheets" element={<CompileMarksheetsPage />} />
       </Route>
     </Route>
   )

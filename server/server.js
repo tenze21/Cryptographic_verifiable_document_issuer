@@ -1,11 +1,8 @@
 import mongoose from 'mongoose';
-import morgan from 'morgan';
 import dotenv from 'dotenv';
 import app from './app.js';
 
 dotenv.config({path: "./variables.env"});
-
-app.use(morgan("dev"));
 
 const PORT= process.env.PORT;
 let server;

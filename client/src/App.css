@@ -62,7 +62,7 @@ main{
 }
 .wallet-container{
   background-color: #eef2ff;
-  width: 30vw;
+  width: 27vw;
   height: 55vh;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
@@ -126,5 +126,43 @@ footer{
     border-radius: 0.5rem;
     border: 2px solid var(--black);
     padding-left: 1rem;
+  }
+}
+
+.sidebar {
+  background-color: var(--very-light-blue);
+  height: 70vh;
+  ul {
+    list-style: none;
+    padding-left: 0;
+    transition: all 1s ease-in-out;
+    li {
+      background-color: var(--blue-dark);
+      p {
+        padding: 1rem;
+        display: block;
+        transition: all 0.3s ease-in-out;
+        font-weight: 600;
+        color: var(--white);
+        cursor: pointer;
+        margin-bottom: 0;
+      }
+      a {
+        padding: 1rem;
+        text-decoration: none;
+        display: block;
+        transition: all 0.3s ease-in-out;
+        font-weight: 600;
+        color: var(--white);
+      }
+    }
+  }
+  .dropdown {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+  }
+  .dropdown.show {
+    max-height: 500px; /* Set a max-height that is large enough to show all items */
   }
 }

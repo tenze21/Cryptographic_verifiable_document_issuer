@@ -22,6 +22,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query:()=>({
         url: `${USERS_URL}/nonce`,
         method: "GET",
+        credentials: "include",
       })
     })
   }),

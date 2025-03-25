@@ -31,7 +31,12 @@ function LoginPage() {
   const statement = "sign in with ethereum";
 
   const createSiweMessage = async () => {
-    const res= await fetch("http://localhost:4000/api/user/nonce");
+    const res= await fetch("http://localhost:4000/api/user/nonce", {
+      method: "GET",
+      credentials: "include"
+    });
+    const nonce=await res.text();
+
     const message = new SiweMessage({
       domain,
       address,
@@ -39,7 +44,7 @@ function LoginPage() {
       uri: origin,
       version: "1",
       chainId: "1",
-      nonce: await res.text(),
+      nonce: nonce,
     });
     return message.prepareMessage();
   };
@@ -53,10 +58,10 @@ function LoginPage() {
     
     const signature = await signMessageAsync({message});
     try {
-      const res= await login({email, message, signature}).unwrap();
+      const res= await login({message, signature}).unwrap();
       dispatch(setCredentials({...res}));
       toast.success("Welcome back!");
-      navigate("/compileMarksheets");
+      navigate("/compile-marksheets");
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }

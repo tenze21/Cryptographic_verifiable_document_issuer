@@ -22,48 +22,55 @@ function WalletConnectPage() {
 
   return (
     <>
-      <article className="position-relative wallet-container">
+      <article className="position-relative wallet-container d-block m-auto mt-5">
         <div>
           <Image
             src="metamask.png"
-            width={"80px"}
-            height={"80px"}
+            width={"60px"}
+            height={"60px"}
             className="position-absolute"
-            style={{ top: "40px", left: "50px" }}
+            style={{ top: "50px", left: "50px" }}
           />
           <Image
             src="coinbase.png"
-            width={"80px"}
-            height={"80px"}
+            width={"60px"}
+            height={"60px"}
             className="position-absolute"
-            style={{ top: "40px", right: "50px" }}
+            style={{ top: "50px", right: "70px" }}
           />
           <Image
-            src="exodus.svg"
-            width={"80px"}
-            height={"80px"}
+            src="exodus_logo.png"
+            width={"60px"}
+            height={"60px"}
             className="position-absolute"
-            style={{ top: "150px", left: "60px" }}
+            style={{ top: "160px", left: "90px" }}
           />
           <Image
-            src="guarda-1.svg"
-            width={"80px"}
-            height={"80px"}
+            src="loopering_logo.png"
+            width={"60px"}
+            height={"60px"}
             className="position-absolute"
-            style={{ top: "170px", right: "180px" }}
+            style={{ top: "230px", right: "160px" }}
           />
           <Image
-            src="dash-d.svg"
-            width={"80px"}
-            height={"80px"}
+            src="zerion_logo.png"
+            width={"60px"}
+            height={"60px"}
             className="position-absolute"
-            style={{ top: "60px", left: "180px" }}
+            style={{ top: "160px", right: "70px" }}
+          />
+          <Image
+            src="bybit_logo.png"
+            width={"60px"}
+            height={"60px"}
+            className="position-absolute"
+            style={{ top: "80px", left: "170px" }}
           />
         </div>
         {account.status === "connecting" ? (
           <button
             style={{ position: "relative", top: "80%" }}
-            className="button-custom-loading"
+            className="button-custom-loading d-block m-auto"
             disabled
           >
             <Spinner
@@ -78,7 +85,7 @@ function WalletConnectPage() {
         ) : (
           <button
             style={{ position: "relative", top: "80%" }}
-            className="button-custom-loading"
+            className="button-custom-loading d-block m-auto"
             onClick={() => setShowWalletOptions(true)}
           >
             Connect Wallet
