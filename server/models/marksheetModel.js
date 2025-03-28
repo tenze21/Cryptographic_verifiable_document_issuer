@@ -42,26 +42,21 @@ const marksheetSchema= new mongoose.Schema({
         result:{
             type: String,
             required: [true, "Result cannot be empty"],
+        },
+        issuedOn:{
+            type: String
         }
     },
     targetHash:{
         type: String,
         required: [true, "Target hash cannot be empty"],
     },
+    proof:[], //Array of strings
     merkleRoot:{
         type: String,
     },
-    proof:[], //Array of strings
     signature:{
         type: String,
-    },
-    issuer:{
-        type: String,
-        required: [true, "Issuer cannot be empty"],
-        validate:{
-            validator: validator.isEthereumAddress,
-            message: "Invalid Issuer address"
-        }
     },
     status:{
         type: String,

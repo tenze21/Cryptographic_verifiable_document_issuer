@@ -1,6 +1,6 @@
 import { useAccount, useSignMessage } from "wagmi";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLoginMutation } from "../slices/userApiSlice";
 import { SiweMessage } from "siwe";
 import { setCredentials } from "../slices/authSlice";
@@ -8,7 +8,7 @@ import {useDispatch} from 'react-redux';
 import {toast} from 'react-toastify';
 
 function LoginPage() {
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const { isDisconnected } = useAccount();
   const navigate = useNavigate();
   const { address } = useAccount();
@@ -71,24 +71,10 @@ function LoginPage() {
     <>
       <article
         onSubmit={submitHandler}
-        className="d-flex justify-content-center align-items-center mt-5"
+        className="d-flex justify-content-center align-items-center mt-5 p-5 container-fluid"
       >
-        <form className="d-flex flex-column gap-3 justify-content-center align-items-center p-3 custom-form rounded-3">
-          <h1>SIGN IN</h1>
-          <div className="form-field d-flex flex-column gap-1">
-            <label htmlFor="email" className="fw-bold">
-              Email address:
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter you email address"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
+        <form className="d-flex flex-column gap-3 justify-content-center align-items-center py-3 px-5 custom-form rounded-3 mt-5 w-25">
+          <h1>Sign In</h1>
           <button disabled={isLoading} type="submit" className="button-custom-loading mt-3">
             Sign In
           </button>

@@ -10,6 +10,11 @@ const userSchema=new mongoose.Schema({
             validator: validator.isEthereumAddress,
             message: "Invalid Wallet address"
         }
+    },
+    role:{
+        type: String,
+        enum: ["regular", "admin"],
+        default: "regular"
     }
 });
 const USER= mongoose.model('User', userSchema);

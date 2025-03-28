@@ -5,9 +5,9 @@ import MARKSHEET from "../models/marksheetModel.js";
 // @routes POST /api/marksheet
 // @access admin
 export const createMarksheet= asyncHandler(async (req, res)=>{
-    const {data, targetHash, issuer}= req.body;
+    const {data}= req.body;
     const status= "pending";
-    const marksheet= new MARKSHEET({data, targetHash, issuer, status});
+    const marksheet= new MARKSHEET({data, targetHash, status});
     await marksheet.save();
     res.status(201).json({message: "Marksheet created successfully"});
 });

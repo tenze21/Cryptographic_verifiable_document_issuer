@@ -30,13 +30,11 @@ export const loginUser = asyncHandler(async (req, res) => {
 
   // find the user with the wallet address
   const user = await USER.findOne({ walletAddress: verifiedMessage.address });
-  console.log(user);
-  
 
   //   check is the wallet address passed in siwe message matches admins wallet address
   if (user && verifiedMessage.address === user.walletAddress) {
-    res.status(200).json(user);
     req.session.siwe= verifiedMessage;
+    res.status(200).json(user);
   } else {
     req.session.nonce = null;
     req.session.siwe = null;
@@ -46,9 +44,15 @@ export const loginUser = asyncHandler(async (req, res) => {
 });
 
 // @desc remove the jwt token from the cookie
-// @route GET /api/user/logout
+// @route POST /api/user/logout
 // @access Public
 export const logout = asyncHandler(async (req, res) => {
-  res.clearCookie("jwt");
-  res.status(200).json({ message: "Logged out successfully" });
+  req.session.destroy((err)=>{
+    if(err){
+      res.status(500);
+      throw new Error('Logout failed');
+    }
+    res.status(200).json({message:'Logged out successfully'});
+  });
+  res.clearCookie('user-session');
 });
