@@ -2,6 +2,7 @@ import Ajv from "ajv";
 
 const ajv = new Ajv();
 
+
 const schema = {
   "$id": "bcsea/v1.0",
     "type": "object",
@@ -20,7 +21,6 @@ const schema = {
                 "subjects",
                 "supw",
                 "result",
-                "issuedOn"
             ],
             "properties": {
                 "student": {
@@ -96,23 +96,23 @@ const schema = {
                                 ]
                             },
                             "marks": {
-                                "type": "integer",
-                                "default": 0,
+                                "type": "string",
+                                "default": "0",
                                 "title": "Marks obtained by student",
                                 "examples": [
-                                    99
+                                    "99"
                                 ]
                             }
                         },
                         "examples": [{
                             "name": "Math",
-                            "marks": 99
+                            "marks": "99"
                         }]
                     },
                     "examples": [
                         [{
                             "name": "Math",
-                            "marks": 99
+                            "marks": "99"
                         }]
                     ]
                 },
@@ -131,14 +131,6 @@ const schema = {
                     "examples": [
                         "Pass certificate awarded"
                     ]
-                },
-                "issuedOn": {
-                    "type": "string",
-                    "default": "",
-                    "title": "Issuance date",
-                    "examples": [
-                        "12/12/2024"
-                    ]
                 }
             },
             "examples": [{
@@ -150,11 +142,10 @@ const schema = {
                 },
                 "subjects": [{
                     "name": "Math",
-                    "marks": 99
+                    "marks": "99"
                 }],
                 "supw": "A",
-                "result": "Pass certificate awarded",
-                "issuedOn": "12/12/2024"
+                "result": "Pass certificate awarded"
             }]
         },
         "targetHash": {
@@ -201,11 +192,10 @@ const schema = {
             },
             "subjects": [{
                 "name": "Math",
-                "marks": 99
+                "marks": "99"
             }],
             "supw": "A",
-            "result": "Pass certificate awarded",
-            "issuedOn": "12/12/2024"
+            "result": "Pass certificate awarded"
         },
         "targetHash": "cbd224a72af5e0050bd58ab2264094cbacac0f19f7f430e347cad451ae8c590d",
         "proof": [],

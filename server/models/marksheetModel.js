@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import validator from "validator";
 
 const marksheetSchema= new mongoose.Schema({
     data:{
@@ -15,7 +14,7 @@ const marksheetSchema= new mongoose.Schema({
                 required: [true, "Student name cannot be empty"],
             },
             dob:{
-                type: Date,
+                type: String,
                 required: [true, "Date of birth cannot be empty"],
             },
             school:{
@@ -30,7 +29,7 @@ const marksheetSchema= new mongoose.Schema({
                     required: [true, "Subject name cannot be empty"],
                 },
                 marks:{
-                    type: Number,
+                    type: String,
                     required: [true, "Marks cannot be empty"],
                 }
             }
@@ -43,9 +42,6 @@ const marksheetSchema= new mongoose.Schema({
             type: String,
             required: [true, "Result cannot be empty"],
         },
-        issuedOn:{
-            type: String
-        }
     },
     targetHash:{
         type: String,
@@ -62,8 +58,13 @@ const marksheetSchema= new mongoose.Schema({
         type: String,
         required: [true, "Status cannot be empty"],
         enum: ["pending", "issued"],
+        default: "pending"
     }
-});
+},
+{
+    timestamps: true,
+}
+);
 
 const MARKSHEET= mongoose.model('Marksheet', marksheetSchema);
 export default MARKSHEET;

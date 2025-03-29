@@ -1,6 +1,5 @@
 import { saltData } from "./salt.js";
 import { validate } from "./schema.js";
-import { digestDocument } from "./digest.js";
 import { MerkleTree } from "./merkle.js";
 import { hashToBuffer } from "./utils.js";
 import pkg from 'lodash';
@@ -63,9 +62,7 @@ export function wrapDocument(data) {
   return { ...document, targetHash };
 }
 
-export function wrapDocuments(data) {
-  const documents = data.map((d) => wrapDocument(d));
-
+export function wrapDocuments(documents) {
   // get all the target hashes to compute the merkle tree and the merkle root
   const merkleTree = new MerkleTree(
     documents.map((document) => document.targetHash).map(hashToBuffer)

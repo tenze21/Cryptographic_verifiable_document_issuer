@@ -11,7 +11,6 @@ import MongoStore from "connect-mongo";
 import dotenv from 'dotenv';
 dotenv.config({path: "./variables.env"});
 
-
 const app = express();
 
 // For logging requests coming to the server
@@ -50,7 +49,7 @@ app.use(Session({
 }));
 
 app.use("/api/user", userRoutes);
-app.use("/api/marksheet", protect, marksheetRoutes);
+app.use("/api/marksheet", marksheetRoutes);
 
 // For handling errors, refer to the "middleware/errorHandler.js" file
 app.use(notFound);

@@ -50,7 +50,7 @@ const primitiveToTypedString = (value) => {
     case "number":
     case "boolean":
     case "undefined":
-      return `${typeof value}: ${String(value)}`;
+      return `${typeof value}:${String(value)}`;
     default:
       if (value === null) {
         // typeof null is 'object' so we have to check for it
