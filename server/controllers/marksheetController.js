@@ -12,5 +12,5 @@ export const createMarksheet= asyncHandler(async (req, res)=>{
     
     const marksheet= new MARKSHEET({data: wrappedDocument.data, targetHash: wrappedDocument.targetHash});
     await marksheet.save();
-    res.status(201).json({message: "Marksheet created successfully"});
+    res.status(201).json({message: "Marksheet details saved successfully"});
 });

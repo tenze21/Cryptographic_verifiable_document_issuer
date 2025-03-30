@@ -1,10 +1,29 @@
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { useCreateMarksheetMutation } from "../slices/marksheetApiSlice";
+import { toast } from "react-toastify";
 
 function ClassX() {
+  const [createMarksheet, { isLoading }] = useCreateMarksheetMutation();
+  const initialFormData = {
+    school: "",
+    name: "",
+    indexNo: "",
+    dob: "",
+    english: "",
+    dzongkha: "",
+    hisGeo: "",
+    math: "",
+    science: "",
+    eco: "",
+    ICT: "",
+    supw: "",
+    result: "",
+  };
 
-  const [createMarksheet, {isLoading}]= useCreateMarksheetMutation();
+  const [formData, setFormData] = useState(initialFormData);
+  const [showSchoolList, setShowSchoolList] = useState(false);
+
   const schools = [
     "Gaselo Central School",
     "Bajo Higher Secondary School",
@@ -32,25 +51,66 @@ function ClassX() {
     "Trongsa Central School",
   ];
 
-  const [showSchoolList, setShowSchoolList] = useState(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  const [school, setSchool] = useState("");
-  const [name, setName] = useState("");
-  const [indexNo, setIndexNo] = useState("");
-  const [dob, setDob] = useState("");
-  const [english, setEnglish] = useState("");
-  const [dzongkha, setDzongkha] = useState("");
-  const [math, setMath] = useState("");
-  const [science, setScience] = useState("");
-  const [eco, setEco] = useState("");
-  const [ICT, setICT] = useState("");
-  const [supw, setSupw]= useState("");
-  const [result, setResult] = useState("");
-
-  const submitHandler=(e)=>{
+  const submitHandler = async (e) => {
     e.preventDefault();
-    const data={}
-  }
+    const payload = {
+      data: {
+        student: {
+          indexNo: formData.indexNo,
+          name: formData.name,
+          dob: formData.dob,
+          school: formData.school,
+        },
+        subjects: [
+          {
+            name: "ENGLISH",
+            marks: formData.english,
+          },
+          {
+            name: "DZONGKHA",
+            marks: formData.dzongkha,
+          },
+          {
+            name: "HISTORY CIVICS & GEOGRAPHY",
+            marks: formData.hisGeo,
+          },
+          {
+            name: "MATHEMATICS",
+            marks: formData.math,
+          },
+          {
+            name: "SCIENCE",
+            marks: formData.science,
+          },
+          {
+            name: "ECONOMICS",
+            marks: formData.eco,
+          },
+          {
+            name: "ICT",
+            marks: formData.ICT,
+          },
+        ],
+        supw: formData.supw,
+        result: formData.result,
+      },
+    };
+    try {
+      const res= await createMarksheet(payload).unwrap();
+      toast.success(res.message);
+      setFormData(initialFormData);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
 
   return (
     <div className="wrapper">
@@ -67,10 +127,10 @@ function ClassX() {
                 name="school"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
-                value={school}
+                autoComplete="off"
+                value={formData.school}
                 onChange={(e) => {
-                  setSchool(e.target.value);
+                  handleChange(e);
                   setShowSchoolList(true);
                 }}
               />
@@ -90,14 +150,17 @@ function ClassX() {
                 >
                   {schools
                     .filter((s) =>
-                      s.toLowerCase().includes(school.toLowerCase())
+                      s.toLowerCase().includes(formData.school.toLowerCase())
                     )
                     .map((school) => {
                       return (
                         <p
                           key={school}
                           onClick={() => {
-                            setSchool(school);
+                            setFormData((prev)=>({
+                              ...prev,
+                              school,
+                            }))
                             setShowSchoolList(false);
                           }}
                           className="text-light"
@@ -118,8 +181,9 @@ function ClassX() {
                 name="name"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
-                onChange={(e)=>setName(e.target.value)}
+                autoComplete="off"
+                value={formData.name}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -130,9 +194,10 @@ function ClassX() {
                 name="indexNo"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
+                autoComplete="off"
+                value={formData.indexNo}
                 onWheel={(e) => e.target.blur()}
-                onChange={(e)=>setIndexNo(e.target.value)}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -143,8 +208,9 @@ function ClassX() {
                 name="dob"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
-                onChange={(e)=>setDob(e.target.value)}
+                autoComplete="off"
+                value={formData.dob}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -155,9 +221,10 @@ function ClassX() {
                 name="english"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
+                autoComplete="off"
+                value={formData.english}
                 onWheel={(e) => e.target.blur()}
-                onChange={(e)=>setEnglish(e.target.value)}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -168,9 +235,24 @@ function ClassX() {
                 name="dzongkha"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
+                autoComplete="off"
+                value={formData.dzongkha}
                 onWheel={(e) => e.target.blur()}
-                onChange={(e)=>setDzongkha(e.target.value)}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="hisGeo">History Civics & Geography: </label>
+              <input
+                type="number"
+                id="hisGeo"
+                name="hisGeo"
+                required="true"
+                spellCheck="false"
+                autoComplete="off"
+                value={formData.hisGeo}
+                onWheel={(e) => e.target.blur()}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -181,9 +263,10 @@ function ClassX() {
                 name="math"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
+                autoComplete="off"
+                value={formData.math}
                 onWheel={(e) => e.target.blur()}
-                onChange={(e)=>setMath(e.target.value)}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -194,9 +277,10 @@ function ClassX() {
                 name="science"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
+                autoComplete="off"
+                value={formData.science}
                 onWheel={(e) => e.target.blur()}
-                onChange={(e)=>setScience(e.target.value)}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -207,9 +291,10 @@ function ClassX() {
                 name="eco"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
+                autoComplete="off"
+                value={formData.eco}
                 onWheel={(e) => e.target.blur()}
-                onChange={(e)=>setEco(e.target.value)}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -220,9 +305,10 @@ function ClassX() {
                 name="ICT"
                 required="true"
                 spellCheck="false"
-                autoComplete="false"
+                autoComplete="off"
+                value={formData.ICT}
                 onWheel={(e) => e.target.blur()}
-                onChange={(e)=>setICT(e.target.value)}
+                onChange={(e) => handleChange(e)}
               />
             </div>
             <div className="form-field">
@@ -231,22 +317,14 @@ function ClassX() {
                 name="supw"
                 id="supw"
                 required="true"
-                className={supw === "" ? "text-secondary" : ""}
-                onChange={(e)=>setSupw(e.target.value)}
+                className={formData.supw === "" ? "text-secondary" : ""}
+                onChange={(e) => handleChange(e)}
               >
-                <option value="">SUPW grade</option>
-                <option value="A">
-                  A
-                </option>
-                <option value="B">
-                  B
-                </option>
-                <option value="C">
-                  C
-                </option>
-                <option value="D">
-                  D
-                </option>
+                <option value="" selected={formData.supw===""}>SUPW grade</option>
+                <option value="A" selected={formData.supw==="A"}>A</option>
+                <option value="B" selected={formData.supw==="B"}>B</option>
+                <option value="C" selected={formData.supw==="C"}>C</option>
+                <option value="D" selected={formData.supw==="D"}>D</option>
               </select>
             </div>
             <div className="form-field">
@@ -255,20 +333,26 @@ function ClassX() {
                 name="result"
                 id="result"
                 required="true"
-                className={result === "" ? "text-secondary" : ""}
-                onChange={(e)=>setResult(e.target.value)}
+                className={formData.result === "" ? "text-secondary" : ""}
+                onChange={(e) => handleChange(e)}
               >
-                <option value="">Result</option>
-                <option value="Pass certificate awarded">
+                <option value="" selected={formData.supw===""}>Result</option>
+                <option value="PASS CERTIFICATE AWARDED" selected={formData.supw==="PASS CERTIFICATE AWARDED"}>
                   Pass certificate awarded
                 </option>
-                <option value="Pass certificate not awarded">
+                <option value="PASS CERTIFICATE NOT AWARDED" selected={formData.supw==="PASS CERTIFICATE NOT AWARDED"}>
                   Pass certificate not awarded
                 </option>
               </select>
             </div>
           </div>
-          <button type="submit" className="marksheet-submit-btn">Submit</button>
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="marksheet-submit-btn"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>

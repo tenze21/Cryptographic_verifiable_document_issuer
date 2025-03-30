@@ -54,7 +54,7 @@ function LoginPage() {
   const submitHandler = async (e) => {
     e.preventDefault();
     const message = await createSiweMessage();
-    console.log(message);
+    // console.log(message);
     
     const signature = await signMessageAsync({message});
     try {
