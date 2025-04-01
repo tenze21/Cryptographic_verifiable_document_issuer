@@ -120,7 +120,6 @@ function Commerece() {
   "Yoeseltse Higher Secondary School",
   "Yurung Central School",
   "Zhemgang Higher Secondary School",
-
 ];
 
 const handleChange = (e) => {
