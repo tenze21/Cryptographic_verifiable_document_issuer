@@ -22,9 +22,6 @@ function Sidebar() {
           </p>
           <ul className={`dropdown ${show ? "show" : ""}`}>
             <li>
-              <Link to="/class-x">Class X</Link>
-            </li>
-            <li>
               <Link to="/science">Science</Link>
             </li>
             <li>

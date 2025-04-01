@@ -3,19 +3,20 @@ import Sidebar from "../components/Sidebar";
 import { useCreateMarksheetMutation } from "../slices/marksheetApiSlice";
 import { toast } from "react-toastify";
 
-function Science() {
+function Arts() {
   const [createMarksheet, { isLoading }] = useCreateMarksheetMutation();
   const initialFormData = {
     school: "",
     name: "",
     indexNo: "",
     dob: "",
-    english: "",
-    dzongkha: "",
-    biology: "",
-    math: "",
-    physics: "",
-    chemistry: "",
+    english: "N/A",
+    dzongkha: "N/A",
+    history: "N/A",
+    math: "N/A",
+    geography: "N/A",
+    media: "N/A",
+    economics: "N/A",
     supw: "",
     result: "",
   };
@@ -128,6 +129,14 @@ function Science() {
       ...prev,
       [name]: value,
     }));
+
+    if(value.length===0){
+      const { name} = e.target;
+      setFormData((prev) => ({
+        ...prev,
+        [name]: "N/A",
+      }));  
+    }
   };
 
   const submitHandler = async (e) => {
@@ -164,6 +173,10 @@ function Science() {
           {
             name: "MEDIA",
             marks: formData.media,
+          },
+          {
+            name: "ECONOMICS",
+            marks: formData.economics,
           },
         ],
         supw: formData.supw,
@@ -286,7 +299,6 @@ function Science() {
                 type="number"
                 id="english"
                 name="english"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.english}
@@ -300,7 +312,6 @@ function Science() {
                 type="number"
                 id="dzongkha"
                 name="dzongkha"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.dzongkha}
@@ -314,7 +325,6 @@ function Science() {
                 type="number"
                 id="history"
                 name="history"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.history}
@@ -328,7 +338,6 @@ function Science() {
                 type="number"
                 id="math"
                 name="math"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.math}
@@ -342,7 +351,6 @@ function Science() {
                 type="number"
                 id="geography"
                 name="geography"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.geography}
@@ -356,10 +364,22 @@ function Science() {
                 type="number"
                 id="media"
                 name="media"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.media}
+                onWheel={(e) => e.target.blur()}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="economics">Economics:</label>
+              <input
+                type="number"
+                id="economics"
+                name="economics"
+                spellCheck="false"
+                autoComplete="off"
+                value={formData.economics}
                 onWheel={(e) => e.target.blur()}
                 onChange={(e) => handleChange(e)}
               />
@@ -429,4 +449,4 @@ function Science() {
     </div>
   );
 }
-export default Science;
+export default Arts;

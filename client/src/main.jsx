@@ -9,7 +9,6 @@ import WalletConnectPage from "./pages/WalletConnectPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import CompileMarksheetsPage from "./pages/CompileMarksheetsPage.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
-import ClassX from "./pages/class-x.jsx";
 import Science from "./pages/Science.jsx";
 import Commerce from "./pages/Commerce.jsx";
 import Arts from "./pages/Arts.jsx";
@@ -28,7 +27,6 @@ const router = createBrowserRouter(
       <Route path="/login" element={<LoginPage />} />
       <Route path="" element={<PrivateRoute/>}>
         <Route path="/compile-marksheets" element={<CompileMarksheetsPage />} />
-        <Route path="/class-x" element={<ClassX />} />
         <Route path="/science" element={<Science />} />
         <Route path="/commerce" element={<Commerce />} />
         <Route path="/arts" element={<Arts />} />
