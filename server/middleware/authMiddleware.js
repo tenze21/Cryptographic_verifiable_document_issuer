@@ -2,7 +2,7 @@ import asyncHandler from "./asyncHandler.js";
 import User from "../models/userModel.js";
 
 // Route protection middleware
-export const protect = asyncHandler(async (req, res, next) => {
+const protect = asyncHandler(async (req, res, next) => {
   if (!req.session.siwe) {
     res.status(401);
     throw new Error("Not authorized, Invalid session");

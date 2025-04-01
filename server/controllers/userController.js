@@ -34,10 +34,12 @@ export const loginUser = asyncHandler(async (req, res) => {
   //   check is the wallet address passed in siwe message matches admins wallet address
   if (user && verifiedMessage.address === user.walletAddress) {
     req.session.siwe= verifiedMessage;
+    // req.session.save();
     res.status(200).json(user);
   } else {
     req.session.nonce = null;
     req.session.siwe = null;
+    // req.session.save();
     res.status(401);
     throw new Error("Authentication failed!");
   }

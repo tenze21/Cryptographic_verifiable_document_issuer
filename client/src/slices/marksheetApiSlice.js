@@ -7,6 +7,7 @@ export const marksheetApiSlice= apiSlice.injectEndpoints({
             query: (data)=>({
                 url: `${MARKSHEET_URL}`,
                 method: "POST",
+                credentials: "include",
                 body: data,
             })
         })
