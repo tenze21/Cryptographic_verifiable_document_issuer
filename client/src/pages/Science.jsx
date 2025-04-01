@@ -12,10 +12,10 @@ function Science() {
     dob: "",
     english: "",
     dzongkha: "",
-    accountancy: "",
+    biology: "",
     math: "",
-    businessentrepreneurship: "",
-    eco: "",
+    physics: "",
+    chemistry: "",
     supw: "",
     result: "",
   };
