@@ -10,12 +10,12 @@ function Science() {
     name: "",
     indexNo: "",
     dob: "",
-    english: "",
-    dzongkha: "",
-    biology: "",
-    math: "",
-    physics: "",
-    chemistry: "",
+    english: "N/A",
+    dzongkha: "N/A",
+    biology: "N/A",
+    math: "N/A",
+    physics: "N/A",
+    chemistry: "N/A",
     supw: "",
     result: "",
   };
@@ -23,107 +23,106 @@ function Science() {
   const [formData, setFormData] = useState(initialFormData);
   const [showSchoolList, setShowSchoolList] = useState(false);
 
-const schools = [
-  "Autsho Central School",
-  "Babesa Higher Secondary School",
-  "Bajothang Higher Secondary School",
-  "Bartsham Central School",
-  "Bayling Central School",
-  "Bjishong Central School",
-  "Buli Central School",
-  "Chukha Central School",
-  "Chumey Central School",
-  "Chaskar Central School",
-  "Dagana Higher Secondary School",
-  "Damphu Central School",
-  "Dashidhing Higher Secondary School",
-  "Dechencholing Higher Secondary School",
-  "Dechentsemo Central School",
-  "Desi Higher Secondary School",
-  "Dorokha Higher Secondary School",
-  "Drukgyel Central School",
-  "Drukjegang Central School",
-  "Druk High School",
-  "Dungtse Central School",
-  "ELC Higher Secondary School",
-  "Gasa Central School",
-  "Gaselo Central School",
-  "Gedu Higher Secondary School",
-  "Gelephu Higher Secondary School",
-  "Gesarling Central School",
-  "Gomdar Central School",
-  "Gongzim Ugyen Dorji Central School",
-  "Gyelposhing Higher Secondary School",
-  "Jakar Higher Secondary School",
-  "Jampel Higher Secondary School",
-  "Jampeling Central School",
-  "Jigme Sherubling Central School",
-  "Kamji Central School",
-  "Karma Academy",
-  "Karma Yoezerling Central School",
-  "Karmaling Higher Secondary School",
-  "Kelki Higher Secondary School",
-  "Khaling Central School",
-  "Khar Yoezerling Central School",
-  "Kuendrup Higher Secondary School",
-  "Kunzangling Central School",
-  "Lhuentse Higher Secondary School",
-  "Losel Gyatsho Academy",
-  "Martshala Central School",
-  "Mendrelgang Central School",
-  "Minjiwong Central School",
-  "Mongar Higher Secondary School",
-  "Motithang Higher Secondary School",
-  "Nangkor Central School",
-  "Nganglam Central School",
-  "Nima Higher Secondary School",
-  "Norbuling Central School",
-  "Orong Central School",
-  "Pema Gatshel Central School",
-  "Peljoring Higher Secondary School",
-  "Pelkhil Higher Secondary School",
-  "Pelrithang Higher Secondary School",
-  "Phobjikha Central School",
-  "Phuentsholing Higher Secondary School",
-  "Punakha Central School",
-  "Rinchen Higher Secondary School",
-  "Royal Academy",
-  "Samcholing Higher Secondary School",
-  "Samdrup Jongkhar Higher Secondary School",
-  "Samtengang Central School",
-  "Samtse Higher Secondary School",
-  "Sarpang Central School",
-  "Shari Higher Secondary School",
-  "Sherubling Central School",
-  "Sherub Reldri Higher Secondary School",
-  "Sonamthang Central School",
-  "Tang Central School",
-  "Tangmachu Central School",
-  "Tashidingkha Central School",
-  "Taktse Righung Higher Secondary School",
-  "Tendruk Central School",
-  "Trashigang Central School",
-  "Trashiyangtse Central School",
-  "Trongsa Central School",
-  "Tshangkha Central School",
-  "Udzorong Central School",
-  "Ugyen Academy",
-  "Ura Central School",
-  "Utpal Academy",
-  "Wangbama Central School",
-  "Wanakha Central School",
-  "Yadi Central School",
-  "Yangchenphug Higher Secondary School",
-  "Yebilabtsa Central School",
-  "Yonten Kuenjung Academy",
-  "Yoezerling Higher Secondary School",
-  "Yoeseltse Higher Secondary School",
-  "Yurung Central School",
-  "Zhemgang Higher Secondary School",
+  const schools = [
+    "Autsho Central School",
+    "Babesa Higher Secondary School",
+    "Bajothang Higher Secondary School",
+    "Bartsham Central School",
+    "Bayling Central School",
+    "Bjishong Central School",
+    "Buli Central School",
+    "Chukha Central School",
+    "Chumey Central School",
+    "Chaskar Central School",
+    "Dagana Higher Secondary School",
+    "Damphu Central School",
+    "Dashidhing Higher Secondary School",
+    "Dechencholing Higher Secondary School",
+    "Dechentsemo Central School",
+    "Desi Higher Secondary School",
+    "Dorokha Higher Secondary School",
+    "Drukgyel Central School",
+    "Drukjegang Central School",
+    "Druk High School",
+    "Dungtse Central School",
+    "ELC Higher Secondary School",
+    "Gasa Central School",
+    "Gaselo Central School",
+    "Gedu Higher Secondary School",
+    "Gelephu Higher Secondary School",
+    "Gesarling Central School",
+    "Gomdar Central School",
+    "Gongzim Ugyen Dorji Central School",
+    "Gyelposhing Higher Secondary School",
+    "Jakar Higher Secondary School",
+    "Jampel Higher Secondary School",
+    "Jampeling Central School",
+    "Jigme Sherubling Central School",
+    "Kamji Central School",
+    "Karma Academy",
+    "Karma Yoezerling Central School",
+    "Karmaling Higher Secondary School",
+    "Kelki Higher Secondary School",
+    "Khaling Central School",
+    "Khar Yoezerling Central School",
+    "Kuendrup Higher Secondary School",
+    "Kunzangling Central School",
+    "Lhuentse Higher Secondary School",
+    "Losel Gyatsho Academy",
+    "Martshala Central School",
+    "Mendrelgang Central School",
+    "Minjiwong Central School",
+    "Mongar Higher Secondary School",
+    "Motithang Higher Secondary School",
+    "Nangkor Central School",
+    "Nganglam Central School",
+    "Nima Higher Secondary School",
+    "Norbuling Central School",
+    "Orong Central School",
+    "Pema Gatshel Central School",
+    "Peljoring Higher Secondary School",
+    "Pelkhil Higher Secondary School",
+    "Pelrithang Higher Secondary School",
+    "Phobjikha Central School",
+    "Phuentsholing Higher Secondary School",
+    "Punakha Central School",
+    "Rinchen Higher Secondary School",
+    "Royal Academy",
+    "Samcholing Higher Secondary School",
+    "Samdrup Jongkhar Higher Secondary School",
+    "Samtengang Central School",
+    "Samtse Higher Secondary School",
+    "Sarpang Central School",
+    "Shari Higher Secondary School",
+    "Sherubling Central School",
+    "Sherub Reldri Higher Secondary School",
+    "Sonamthang Central School",
+    "Tang Central School",
+    "Tangmachu Central School",
+    "Tashidingkha Central School",
+    "Taktse Righung Higher Secondary School",
+    "Tendruk Central School",
+    "Trashigang Central School",
+    "Trashiyangtse Central School",
+    "Trongsa Central School",
+    "Tshangkha Central School",
+    "Udzorong Central School",
+    "Ugyen Academy",
+    "Ura Central School",
+    "Utpal Academy",
+    "Wangbama Central School",
+    "Wanakha Central School",
+    "Yadi Central School",
+    "Yangchenphug Higher Secondary School",
+    "Yebilabtsa Central School",
+    "Yonten Kuenjung Academy",
+    "Yoezerling Higher Secondary School",
+    "Yoeseltse Higher Secondary School",
+    "Yurung Central School",
+    "Zhemgang Higher Secondary School",
+  ];
 
-];
-
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -172,7 +171,7 @@ const handleChange = (e) => {
       },
     };
     try {
-      const res= await createMarksheet(payload).unwrap();
+      const res = await createMarksheet(payload).unwrap();
       toast.success(res.message);
       setFormData(initialFormData);
     } catch (err) {
@@ -225,10 +224,10 @@ const handleChange = (e) => {
                         <p
                           key={school}
                           onClick={() => {
-                            setFormData((prev)=>({
+                            setFormData((prev) => ({
                               ...prev,
                               school,
-                            }))
+                            }));
                             setShowSchoolList(false);
                           }}
                           className="text-light"
@@ -287,7 +286,6 @@ const handleChange = (e) => {
                 type="number"
                 id="english"
                 name="english"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.english}
@@ -301,7 +299,6 @@ const handleChange = (e) => {
                 type="number"
                 id="dzongkha"
                 name="dzongkha"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.dzongkha}
@@ -315,7 +312,6 @@ const handleChange = (e) => {
                 type="number"
                 id="biology"
                 name="biology"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.biology}
@@ -329,7 +325,6 @@ const handleChange = (e) => {
                 type="number"
                 id="math"
                 name="math"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.math}
@@ -343,7 +338,6 @@ const handleChange = (e) => {
                 type="number"
                 id="physics"
                 name="physics"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.physics}
@@ -357,7 +351,6 @@ const handleChange = (e) => {
                 type="number"
                 id="chemistry"
                 name="chemistry"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.chemistry}
@@ -374,11 +367,21 @@ const handleChange = (e) => {
                 className={formData.supw === "" ? "text-secondary" : ""}
                 onChange={(e) => handleChange(e)}
               >
-                <option value="" selected={formData.supw===""}>SUPW grade</option>
-                <option value="A" selected={formData.supw==="A"}>A</option>
-                <option value="B" selected={formData.supw==="B"}>B</option>
-                <option value="C" selected={formData.supw==="C"}>C</option>
-                <option value="D" selected={formData.supw==="D"}>D</option>
+                <option value="" selected={formData.supw === ""}>
+                  SUPW grade
+                </option>
+                <option value="A" selected={formData.supw === "A"}>
+                  A
+                </option>
+                <option value="B" selected={formData.supw === "B"}>
+                  B
+                </option>
+                <option value="C" selected={formData.supw === "C"}>
+                  C
+                </option>
+                <option value="D" selected={formData.supw === "D"}>
+                  D
+                </option>
               </select>
             </div>
             <div className="form-field">
@@ -390,11 +393,19 @@ const handleChange = (e) => {
                 className={formData.result === "" ? "text-secondary" : ""}
                 onChange={(e) => handleChange(e)}
               >
-                <option value="" selected={formData.supw===""}>Result</option>
-                <option value="PASS CERTIFICATE AWARDED" selected={formData.supw==="PASS CERTIFICATE AWARDED"}>
+                <option value="" selected={formData.supw === ""}>
+                  Result
+                </option>
+                <option
+                  value="PASS CERTIFICATE AWARDED"
+                  selected={formData.supw === "PASS CERTIFICATE AWARDED"}
+                >
                   Pass certificate awarded
                 </option>
-                <option value="PASS CERTIFICATE NOT AWARDED" selected={formData.supw==="PASS CERTIFICATE NOT AWARDED"}>
+                <option
+                  value="PASS CERTIFICATE NOT AWARDED"
+                  selected={formData.supw === "PASS CERTIFICATE NOT AWARDED"}
+                >
                   Pass certificate not awarded
                 </option>
               </select>
@@ -413,4 +424,3 @@ const handleChange = (e) => {
   );
 }
 export default Science;
-

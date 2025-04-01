@@ -10,12 +10,13 @@ function Science() {
     name: "",
     indexNo: "",
     dob: "",
-    english: "",
-    dzongkha: "",
-    biology: "",
-    math: "",
-    physics: "",
-    chemistry: "",
+    english: "N/A",
+    dzongkha: "N/A",
+    history: "N/A",
+    math: "N/A",
+    geography: "N/A",
+    media: "N/A",
+    economics: "N/A",
     supw: "",
     result: "",
   };
@@ -24,7 +25,6 @@ function Science() {
   const [showSchoolList, setShowSchoolList] = useState(false);
 
   const schools = [
-
     "Autsho Central School",
 
     "Babesa Higher Secondary School",
@@ -218,7 +218,7 @@ function Science() {
     "Zhemgang Higher Secondary School",
   ];
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -261,13 +261,17 @@ const handleChange = (e) => {
             name: "MEDIA",
             marks: formData.media,
           },
+          {
+            name: "ECONOMICS",
+            marks: formData.economics,
+          },
         ],
         supw: formData.supw,
         result: formData.result,
       },
     };
     try {
-      const res= await createMarksheet(payload).unwrap();
+      const res = await createMarksheet(payload).unwrap();
       toast.success(res.message);
       setFormData(initialFormData);
     } catch (err) {
@@ -320,10 +324,10 @@ const handleChange = (e) => {
                         <p
                           key={school}
                           onClick={() => {
-                            setFormData((prev)=>({
+                            setFormData((prev) => ({
                               ...prev,
                               school,
-                            }))
+                            }));
                             setShowSchoolList(false);
                           }}
                           className="text-light"
@@ -382,7 +386,6 @@ const handleChange = (e) => {
                 type="number"
                 id="english"
                 name="english"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.english}
@@ -396,7 +399,6 @@ const handleChange = (e) => {
                 type="number"
                 id="dzongkha"
                 name="dzongkha"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.dzongkha}
@@ -410,7 +412,6 @@ const handleChange = (e) => {
                 type="number"
                 id="history"
                 name="history"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.history}
@@ -424,7 +425,6 @@ const handleChange = (e) => {
                 type="number"
                 id="math"
                 name="math"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.math}
@@ -438,7 +438,6 @@ const handleChange = (e) => {
                 type="number"
                 id="geography"
                 name="geography"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.geography}
@@ -452,10 +451,22 @@ const handleChange = (e) => {
                 type="number"
                 id="media"
                 name="media"
-                required="true"
                 spellCheck="false"
                 autoComplete="off"
                 value={formData.media}
+                onWheel={(e) => e.target.blur()}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="economics">Economics:</label>
+              <input
+                type="number"
+                id="economics"
+                name="economics"
+                spellCheck="false"
+                autoComplete="off"
+                value={formData.economics}
                 onWheel={(e) => e.target.blur()}
                 onChange={(e) => handleChange(e)}
               />
@@ -469,11 +480,21 @@ const handleChange = (e) => {
                 className={formData.supw === "" ? "text-secondary" : ""}
                 onChange={(e) => handleChange(e)}
               >
-                <option value="" selected={formData.supw===""}>SUPW grade</option>
-                <option value="A" selected={formData.supw==="A"}>A</option>
-                <option value="B" selected={formData.supw==="B"}>B</option>
-                <option value="C" selected={formData.supw==="C"}>C</option>
-                <option value="D" selected={formData.supw==="D"}>D</option>
+                <option value="" selected={formData.supw === ""}>
+                  SUPW grade
+                </option>
+                <option value="A" selected={formData.supw === "A"}>
+                  A
+                </option>
+                <option value="B" selected={formData.supw === "B"}>
+                  B
+                </option>
+                <option value="C" selected={formData.supw === "C"}>
+                  C
+                </option>
+                <option value="D" selected={formData.supw === "D"}>
+                  D
+                </option>
               </select>
             </div>
             <div className="form-field">
@@ -485,11 +506,19 @@ const handleChange = (e) => {
                 className={formData.result === "" ? "text-secondary" : ""}
                 onChange={(e) => handleChange(e)}
               >
-                <option value="" selected={formData.supw===""}>Result</option>
-                <option value="PASS CERTIFICATE AWARDED" selected={formData.supw==="PASS CERTIFICATE AWARDED"}>
+                <option value="" selected={formData.supw === ""}>
+                  Result
+                </option>
+                <option
+                  value="PASS CERTIFICATE AWARDED"
+                  selected={formData.supw === "PASS CERTIFICATE AWARDED"}
+                >
                   Pass certificate awarded
                 </option>
-                <option value="PASS CERTIFICATE NOT AWARDED" selected={formData.supw==="PASS CERTIFICATE NOT AWARDED"}>
+                <option
+                  value="PASS CERTIFICATE NOT AWARDED"
+                  selected={formData.supw === "PASS CERTIFICATE NOT AWARDED"}
+                >
                   Pass certificate not awarded
                 </option>
               </select>
@@ -508,4 +537,3 @@ const handleChange = (e) => {
   );
 }
 export default Science;
-
