@@ -41,7 +41,7 @@ app.use(Session({
   saveUninitialized: false,
   store: MongoStore.create({mongoUrl: process.env.MONGO_URI}),
   cookie:{
-    secure: process.env.NODE_ENV=="production",
+    secure: process.env.NODE_ENV!=="development",
     httpOnly: true,
     sameSite: "strict",
     maxAge: 1000 * 60 * 60 * 24 * 1, // expires in 24 hours
@@ -49,7 +49,7 @@ app.use(Session({
 }));
 
 app.use("/api/user", userRoutes);
-app.use("/api/marksheet", marksheetRoutes);
+app.use("/api/marksheet", protect, marksheetRoutes);
 
 // For handling errors, refer to the "middleware/errorHandler.js" file
 app.use(notFound);

@@ -13,3 +13,5 @@ export const protect = asyncHandler(async (req, res, next) => {
     next();
   }
 });
+
+export {protect};
