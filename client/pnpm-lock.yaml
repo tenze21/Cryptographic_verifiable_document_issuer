@@ -17,9 +17,6 @@ importers:
       bootstrap:
         specifier: ^5.3.3
         version: 5.3.3(@popperjs/core@2.11.8)
-      jwt:
-        specifier: ^0.2.0
-        version: 0.2.0
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -1530,10 +1527,6 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  jwt@0.2.0:
-    resolution: {integrity: sha512-+lsJgK3p+dr7yCHO19Ap2uFh+pMSCayPRGjWmf3kYCnYfO+1kqz4DqA8s65HKYIrw5c2NBo+dEvzoZUco09j4Q==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-
   keccak@3.0.4:
     resolution: {integrity: sha512-3vKuW0jV8J3XNTzvfyicFR5qvxrSAGl7KIhvgOu5cmWwM7tZRj3fMbj/pfIf4be7aznbc+prBWGjywox/g2Y6Q==}
     engines: {node: '>=10.0.0'}
@@ -1628,9 +1621,6 @@ packages:
 
   node-addon-api@2.0.2:
     resolution: {integrity: sha512-Ntyt4AIXyaLIuMHF6IOoTakB3K+RWxwtsHNRxllEoA6vPwP9o4866g6YWDLUdnucilZhmkxiHwHr11gAENw+QA==}
-
-  node-base64@0.0.1:
-    resolution: {integrity: sha512-lzWZQXvK7O1g5aKPCTYQJFGJc3MToEMlGmhXN+2UtkRYQz0OiWHoSMkfqQedUYCwWnixvsauH/IFsaFkrspjYQ==}
 
   node-fetch-native@1.6.6:
     resolution: {integrity: sha512-8Mc2HhqPdlIfedsuZoc3yioPuzp6b+L5jRCRY1QzuWZh2EGJVQrGppC6V6cF0bLdbW0+O2YpqCA25aF/1lvipQ==}
@@ -4241,10 +4231,6 @@ snapshots:
 
   json5@2.2.3: {}
 
-  jwt@0.2.0:
-    dependencies:
-      node-base64: 0.0.1
-
   keccak@3.0.4:
     dependencies:
       node-addon-api: 2.0.2
@@ -4334,8 +4320,6 @@ snapshots:
   natural-compare@1.4.0: {}
 
   node-addon-api@2.0.2: {}
-
-  node-base64@0.0.1: {}
 
   node-fetch-native@1.6.6: {}
 

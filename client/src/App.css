@@ -173,10 +173,12 @@ footer {
     appearance: textfield;
   }
 }
-
+/* .sidebar-arts {
+  height: 150vh;
+} */
 .sidebar {
   background-color: var(--very-light-blue);
-  height: 70vh;
+  height: 115vh;
   ul {
     list-style: none;
     padding-left: 0;
