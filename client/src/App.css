@@ -260,3 +260,12 @@ footer {
     transform: translateY(0);
   }
 }
+
+.compile-marksheets{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  h1{
+    text-align: center;
+    margin-top: 2rem;
+  }
+}

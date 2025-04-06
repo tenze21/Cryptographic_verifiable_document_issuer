@@ -61,7 +61,7 @@ export class MerkleTree {
     this.elements = hashArray(_elements);
 
     // check buffers
-    if (this.elements.some((e) => !(e.legnth === 32 && Buffer.isBuffer(e)))) {
+    if (this.elements.some((e) => !(e.length === 32 && Buffer.isBuffer(e)))) {
       throw new Error("All elements must be 32 byte buffers");
     }
     this.layers = getLayers(this.elements);

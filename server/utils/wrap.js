@@ -62,7 +62,7 @@ export function wrapDocument(data) {
   return { ...document, targetHash };
 }
 
-export function wrapDocuments(documents) {
+export function generateRoot(documents) {
   // get all the target hashes to compute the merkle tree and the merkle root
   const merkleTree = new MerkleTree(
     documents.map((document) => document.targetHash).map(hashToBuffer)
@@ -76,6 +76,7 @@ export function wrapDocuments(documents) {
       .map((buffer) => buffer.toString("hex"));
     return {
       ...document,
+      status: "issued",
       proof: merkleProof,
       merkleRoot,
     };

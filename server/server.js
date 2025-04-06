@@ -12,7 +12,7 @@ mongoose
     console.log("Database connected");
 
     server = app.listen(PORT, () => {
-      console.log(`application running on port ${PORT}`);
+      console.log(`application running in ${process.env.NODE_ENV} mode on port ${PORT}`);
     });
   })
   .catch((err) => {
