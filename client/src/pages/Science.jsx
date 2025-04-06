@@ -128,7 +128,7 @@ function Science() {
       ...prev,
       [name]: value,
     }));
-    if(value.length===0){
+    if(value.length===0 && name !== "school" && name!=="name" && name!=="indexNo"){
       const { name} = e.target;
       setFormData((prev) => ({
         ...prev,
@@ -205,7 +205,11 @@ function Science() {
                 value={formData.school}
                 onChange={(e) => {
                   handleChange(e);
-                  setShowSchoolList(true);
+                  if(e.target.value.length>0){
+                    setShowSchoolList(true);
+                  }else{
+                    setShowSchoolList(false);
+                  }
                 }}
               />
               {showSchoolList === false ? (

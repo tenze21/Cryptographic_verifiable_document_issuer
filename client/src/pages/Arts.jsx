@@ -125,13 +125,14 @@ function Arts() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name);
+    
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
 
-    if(value.length===0){
-      const { name} = e.target;
+    if(value.length===0 && name !== "school" && name!=="name" && name!=="indexNo"){
       setFormData((prev) => ({
         ...prev,
         [name]: "N/A",
@@ -211,7 +212,11 @@ function Arts() {
                 value={formData.school}
                 onChange={(e) => {
                   handleChange(e);
-                  setShowSchoolList(true);
+                  if(e.target.value.length>0){
+                    setShowSchoolList(true);
+                  }else{
+                    setShowSchoolList(false);
+                  }
                 }}
               />
               {showSchoolList === false ? (
