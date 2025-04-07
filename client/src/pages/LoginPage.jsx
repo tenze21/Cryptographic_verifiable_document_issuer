@@ -15,7 +15,6 @@ function LoginPage() {
 
   const [login, { isLoading }] = useLoginMutation();
   const dispatch= useDispatch();
-
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get("redirect") || "/";
