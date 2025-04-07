@@ -269,3 +269,73 @@ footer {
     margin-top: 2rem;
   }
 }
+
+.content {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.marksheets-container {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 500px;
+}
+
+.marksheets-title {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.marksheets-article {
+  margin-top: 20px;
+}
+
+.marksheets-subtitle {
+  font-size: 22px;
+  color: #555;
+  margin-bottom: 50px;
+  margin-top: 150px;
+}
+
+.marksheets-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.marksheets-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.marksheets-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.text-info {
+  color: #007bff;
+  margin-top: 10px;
+}
+
+.text-success {
+  color: #28a745;
+  margin-top: 10px;
+}
+
+.text-danger {
+  color: #dc3545;
+  margin-top: 10px;
+}
