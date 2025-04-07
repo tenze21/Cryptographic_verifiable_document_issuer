@@ -91,7 +91,7 @@ main {
   background-color: var(--orange);
   display: block;
   margin-inline: auto;
-  margin-top: 1.5rem;
+  margin-top: 4rem;
   margin-bottom: 2rem;
   width: 45vw;
   height: 45px;
@@ -217,10 +217,15 @@ footer {
   display: grid;
   grid-template-columns: max-content 1fr;
 }
+
+.wrapper > div {
+  margin-top: -16rem;
+}
 .form-field-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  margin-top: 2.5rem;
 }
 
 
@@ -288,7 +293,7 @@ footer {
 }
 
 .marksheets-title {
-  font-size: 36px;
+  font-size: 30px;
   color: #333;
   margin-bottom: 20px;
   font-weight: bold;
@@ -303,7 +308,7 @@ footer {
   font-size: 22px;
   color: #555;
   margin-bottom: 50px;
-  margin-top: 150px;
+  margin-top: 115px;
 }
 
 .marksheets-button {
@@ -339,3 +344,4 @@ footer {
   color: #dc3545;
   margin-top: 10px;
 }
+
