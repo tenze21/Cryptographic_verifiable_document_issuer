@@ -25,6 +25,13 @@ export const marksheetApiSlice = apiSlice.injectEndpoints({
         credentials: "include",
       }),
     }),
+    updateMarksheeStatus: builder.mutation({
+      query: ()=>({
+        url: `${MARKSHEET_URL}/update`,
+        method: "PATCH",
+        credentials: "include"
+      })
+    })
   }),
 });
-export const { useCreateMarksheetMutation, useGetUnCompiledNumberQuery, useCompileMarksheetsMutation } = marksheetApiSlice;
+export const { useCreateMarksheetMutation, useGetUnCompiledNumberQuery, useCompileMarksheetsMutation, useUpdateMarksheeStatusMutation } = marksheetApiSlice;

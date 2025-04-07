@@ -76,7 +76,6 @@ export function generateRoot(documents) {
       .map((buffer) => buffer.toString("hex"));
     return {
       ...document,
-      status: "issued",
       proof: merkleProof,
       merkleRoot,
     };
