@@ -178,7 +178,7 @@ footer {
 } */
 .sidebar {
   background-color: var(--very-light-blue);
-  height: 75vh;
+  height: 85vh;
   width: 15vw;
   ul {
     list-style: none;
