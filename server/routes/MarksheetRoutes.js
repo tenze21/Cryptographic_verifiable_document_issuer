@@ -15,6 +15,6 @@ router
   .get(protect, getUnCompiledNumber);
 router.patch("/compile", protect, admin, compileMarksheet);
 router.patch("/update", protect, admin, updateMarksheetStatus);
-router.get("/get", getStudentMarksheet);
+router.post("/get", getStudentMarksheet);
 
 export default router;

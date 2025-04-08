@@ -58,6 +58,7 @@ main{
   --white: #fff;
   --black: #000;
   --dark-orange: #dc5e34;
+  --gray: #C4C4C4;
   --font-primary: "Poppins", sans-serif,
   --font-secondary: "Inter", sans-serif,
 }
@@ -85,7 +86,7 @@ main{
     transition: all 300ms ease-in-out;
     &:hover{
       background-color: var(--orange);
-      scale: 1.1;
+      scale: 1.05;
     }
   }
 }
@@ -96,4 +97,101 @@ footer{
   padding-top: 1rem;
   margin-inline: 2rem;
   color: var(--blue-dark);
+}
+
+.detail-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  margin-inline: auto;
+  h1{
+    font-weight: 700;
+    font-size: 2rem;
+    font-family: var(--font-primary);
+  }
+  .form-field{
+    display: flex;
+    flex-direction: column;
+    label{
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: var(--font-primary);
+    }
+    input{
+      width: 537px;
+      height: 50px;
+      border-radius: 0.5rem;
+      border: 2px solid var(--gray);
+      font-family: var(--font-secondary);
+      font-size: 1rem;
+      font-weight: 500;
+      padding-left: 1rem;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  }
+  button{
+    align-self: flex-end;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    padding: 8px 3rem;
+    background-color: var(--orange);
+    color: var(--white);
+    transition: all 300ms ease-out;
+    &:hover{
+      background-color: var(--dark-orange);
+      scale: 1.05;
+    }
+  }
+}
+
+.details-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50vw;
+  margin-inline: auto;
+  h2{
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+  }
+  p{
+    font-family: var(--font-secondary);
+    font-weight: 500;
+  }
+  .student-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    p{
+      margin-left: 7rem;
+    }
+  }
+  .subjects, .supw{
+    width: 70%;
+    p{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.download-btn{
+  display: block;
+  margin-left: auto;
+  border: 1px solid #000;
+  outline: none;
+  border-radius: 5px;
+  padding: 0.3rem;
+  background-color: transparent;
 }
