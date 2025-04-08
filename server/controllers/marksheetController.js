@@ -57,8 +57,6 @@ export const compileMarksheet = asyncHandler(async (req, res) => {
 // @routes PATCH /api/marksheet/update
 // @access admin
 export const updateMarksheetStatus = asyncHandler(async (req, res) => {
-  console.log(req.body);
-  
   const { signature } = req.body;
   await MARKSHEET.updateMany(
     { status: "pending" },
