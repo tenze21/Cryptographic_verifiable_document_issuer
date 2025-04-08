@@ -3,9 +3,9 @@ import Loader from "../components/Loader";
 import {
   useGetUnCompiledNumberQuery,
   useCompileMarksheetsMutation,
-  useUpdateMarksheeStatusMutation,
+  useUpdateMarksheetMutation,
 } from "../slices/marksheetApiSlice";
-import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
+import { useWriteContract, useWaitForTransactionReceipt, useSignMessage } from "wagmi";
 import { config } from "../wagmi_config";
 import abi from "../contractAbi/abi.json";
 import { toast } from "react-toastify";
@@ -14,6 +14,9 @@ import { useState } from "react";
 function CompileMarksheetsPage() {
   // contract address: 0xF946e0b0263FEeEd5C163453c24AFc1E4C9905bA
   const [issuedMarksheet, setIssuedMarksheet]= useState(false);
+  const [merkleRoot, setMerkleRoot]= useState("");
+  const {signMessageAsync}= useSignMessage();
+
   const {
     data: uncompiledNumber,
     refetch,
@@ -22,15 +25,14 @@ function CompileMarksheetsPage() {
   const [compileMarksheets, { isLoading: loadingCompile }] =
     useCompileMarksheetsMutation();
   
-  const [updateMarksheetStatus, {isLoading: loadingUpdate}]=useUpdateMarksheeStatusMutation();
+  const [updateMarksheet, {isLoading: loadingUpdate}]=useUpdateMarksheetMutation();
 
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
   const handleIssue = async () => {
     try {
       let res = await compileMarksheets().unwrap();
-      // let merkleRoot = `0x${res.MerkleRoot}`;
-      // console.log(res);
+      setMerkleRoot(res.MerkleRoot);
 
       writeContract({
         address: "0xF946e0b0263FEeEd5C163453c24AFc1E4C9905bA",
@@ -45,7 +47,8 @@ function CompileMarksheetsPage() {
 
   const handleUpdate= async()=>{
     try {
-      let res= await updateMarksheetStatus().unwrap();
+      let signature= await signMessageAsync({message: merkleRoot});
+      let res= await updateMarksheet({signature}).unwrap();
       refetch();
       setIssuedMarksheet(true);
       toast.success(res.message);

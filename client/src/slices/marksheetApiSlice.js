@@ -17,6 +17,8 @@ export const marksheetApiSlice = apiSlice.injectEndpoints({
         method: "GET",
         credentials: "include",
       }),
+      keepUnusedDataFor: 5,
+      providesTags: ["marksheet"],
     }),
     compileMarksheets: builder.mutation({
       query: () => ({
@@ -24,14 +26,22 @@ export const marksheetApiSlice = apiSlice.injectEndpoints({
         method: "PATCH",
         credentials: "include",
       }),
+      invalidatesTags: ["marksheet"],
     }),
-    updateMarksheeStatus: builder.mutation({
-      query: ()=>({
+    updateMarksheet: builder.mutation({
+      query: (data) => ({
         url: `${MARKSHEET_URL}/update`,
         method: "PATCH",
-        credentials: "include"
-      })
-    })
+        credentials: "include",
+        body: data,
+      }),
+      invalidatesTags: ["marksheet"],
+    }),
   }),
 });
-export const { useCreateMarksheetMutation, useGetUnCompiledNumberQuery, useCompileMarksheetsMutation, useUpdateMarksheeStatusMutation } = marksheetApiSlice;
+export const {
+  useCreateMarksheetMutation,
+  useGetUnCompiledNumberQuery,
+  useCompileMarksheetsMutation,
+  useUpdateMarksheetMutation,
+} = marksheetApiSlice;

@@ -4,7 +4,6 @@ import { notFound, errorHandler } from "./middleware/errorHandler.js";
 import cookieParser from 'cookie-parser';
 import userRoutes from './routes/userRoutes.js';
 import marksheetRoutes from './routes/MarksheetRoutes.js';
-import { protect } from "./middleware/authMiddleware.js";
 import morgan from 'morgan';
 import Session from "express-session";
 import MongoStore from "connect-mongo";
@@ -49,7 +48,7 @@ app.use(Session({
 }));
 
 app.use("/api/user", userRoutes);
-app.use("/api/marksheet", protect, marksheetRoutes);
+app.use("/api/marksheet", marksheetRoutes);
 
 // For handling errors, refer to the "middleware/errorHandler.js" file
 app.use(notFound);
