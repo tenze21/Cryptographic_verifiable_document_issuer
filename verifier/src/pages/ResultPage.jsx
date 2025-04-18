@@ -36,7 +36,7 @@ function ResultPage() {
   };
 
   return (
-    <div>
+    <div className="mt-3">
       <form className="detail-form" onSubmit={handleSubmit}>
         <h1>View Result</h1>
         <div className="form-field">

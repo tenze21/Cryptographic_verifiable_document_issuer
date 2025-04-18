@@ -32,7 +32,7 @@ export function digestDocument(document){
     return keccak256(JSON.stringify(sortedHashes));
 }
 
-function validateJsonSchema(document) {
+export function validateJsonSchema(document) {
   const valid = validate(document);
   if (!valid) {
     return {

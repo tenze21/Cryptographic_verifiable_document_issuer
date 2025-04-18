@@ -3,6 +3,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
 import { Outlet } from "react-router-dom";
 import { config } from "./wagmi_config";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -20,6 +22,7 @@ function App() {
           <Footer />
         </QueryClientProvider>
       </WagmiProvider>
+      <ToastContainer/>
     </>
   );
 }

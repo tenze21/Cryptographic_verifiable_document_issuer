@@ -7,6 +7,8 @@ import store from "./store.js";
 import { Provider } from "react-redux";
 import HomePage from "./pages/HomePage.jsx";
 import ResultPage from "./pages/ResultPage.jsx";
+import MarksheetPage from "./pages/MarksheetViewPage.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 import {
   createBrowserRouter,
@@ -20,6 +22,9 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route index={true} element={<HomePage />} />
       <Route path="/get-result" element={<ResultPage />} />
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/marksheet" element={<MarksheetPage />} />
+      </Route>
     </Route>
   )
 );

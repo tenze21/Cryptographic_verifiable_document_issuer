@@ -8,7 +8,6 @@ import {useDispatch} from 'react-redux';
 import {toast} from 'react-toastify';
 
 function LoginPage() {
-  // const [email, setEmail] = useState("");
   const { isDisconnected } = useAccount();
   const navigate = useNavigate();
   const { address } = useAccount();
