@@ -32,16 +32,19 @@ function HomePage() {
       const { message, data } = await validateTargetHash(file).unwrap();
         dispatch(setMarksheet(data));
       toast.success(message);
+
       const { message: rootvalidation } = await validateMerkleRoot({
         proof: data.proof,
         root: data.merkleRoot,
         targetHash: data.targetHash,
       }).unwrap();
       toast.success(rootvalidation);
+
       const { message: rootCheckOnChain } = await checkMerkleRootOnChain({
         merkleRoot: data.merkleRoot,
       }).unwrap();
       toast.success(rootCheckOnChain);
+      
       const { message: signatureValidation } = await validateSignature({
         merkleRoot: data.merkleRoot,
         signature: data.signature,

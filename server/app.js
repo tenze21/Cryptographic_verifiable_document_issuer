@@ -23,11 +23,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // CORS setup
-// Only responds to requests coming from http://localhost:5173
-// This is the port where the React app is running
+// Only responds to requests coming from http://localhost:5173 and http://localhost:5174
+// This is the port where the React + vite app is running
+// shall be replaced with the deployed URL
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     credentials: true,
   })
 );
