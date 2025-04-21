@@ -104,6 +104,7 @@ footer{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
   gap: 1rem;
   width: max-content;
   margin-inline: auto;
@@ -282,7 +283,7 @@ footer{
   h1{
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    span{
+    .issuer{
       color: var(--blue-dark);
     }
   }
@@ -315,3 +316,330 @@ footer{
     display: block;
   }
 }
+
+/* Validation Header */
+.validation_results {
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.validation_results h1 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.validation_results h1 span {
+  font-weight: bold;
+  color: #000;
+}
+
+.validation_results .d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.validation_results p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Marksheet Document */
+.marksheet {
+  width: 750px;
+  height: 990px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #cce0f5 0%, #fdead1 100%);
+  border: 2px solid #000;
+  position: relative;
+  color: #000;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 4rem;
+  font-family: var(--font-primary);
+}
+
+/* Marksheet Header */
+.marksheet-header {
+  background-color: #f2dbc2;
+  padding: 8px 20px 5px;
+  text-align: center;
+  position: relative;
+  .english-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    margin-bottom: 0;
+  }
+}
+
+.dob {
+  margin-left: 5rem;
+}
+.resultd{
+  margin-left: 8.6rem;
+}
+
+.note-list{
+  margin-top: -1.8rem;
+  margin-left: 11rem
+}
+.header-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.dzongkha-text {
+  font-family: "Jomolhari", "Noto Sans Tibetan", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.bcsea-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Certificate Body */
+.marksheet-body {
+  padding: 15px 30px;
+  position: relative;
+  .student-detail{
+    display: flex;
+    font-size: 1.1rem;
+    &:nth-child(1){
+      gap: 3rem;
+    }
+    &:nth-child(2){
+      gap: 2.5rem;
+    }
+    &:nth-child(3){
+      gap: 8.7rem;
+    }
+    &:nth-child(4){
+      gap: 2.4rem;
+    }
+    span{
+      &:nth-child(1){
+        font-weight: 500;
+      }
+      &:nth-child(2){
+        font-weight: 600;
+      }
+    }
+  }
+  table{
+    background-image: url("/ms_bg.png");
+    background-repeat: no-repeat;
+    background-position: 40% 0%;
+    background-size: contain;
+  }
+}
+
+/* Student Information */
+.marksheet-body p {
+  margin: 5px 0;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+.marksheet-body h1 {
+  font-size: 16px;
+  text-align: center;
+  margin: 20px 0 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Table Styling */
+table {
+  /* width: 700px; */
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+  border: transparent;
+  /* margin-left: 90px; */
+  margin-inline: auto;
+  td{
+    font-weight: 700;
+  }
+}
+
+table th {
+  padding: 8px 0 8px 0;
+  text-align: left;
+  border: 1px solid #000;
+  font-weight: bold;    
+  border: transparent;
+  &:nth-child(1){
+    width: 290px;
+  }
+  &:nth-child(2){
+    width: 200px;
+  }
+}
+
+table td {
+  padding: 8px 0 8px 0;
+  border: 1px solid #000;
+  border: transparent;
+}
+.dob{
+  font-weight: 700;
+}
+.resultd{
+  font-weight: 700;
+}
+
+/* Subject Marks Layout */
+table td:last-child {
+  text-align: left;
+  border: transparent;
+}
+
+/* Personal Details Section */
+.details-section {
+  margin-top: 20px;
+}
+
+.details-section p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.details-section strong {
+  display: inline-block;
+  width: 180px;
+  font-weight: bold;
+}
+
+/* Notes Section */
+.notes-section {
+  margin-top: 15px;
+}
+
+.notes-section p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.notes-section ol {
+  margin: 0 0 0 25px;
+  padding: 0;
+}
+
+.notes-section ol li {
+  margin-bottom: 3px;
+  font-size: 13px;
+}
+
+/* SUPW Section */
+.supw-section {
+  margin-top: 15px;
+}
+
+.supw-section p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.supw-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.supw-grade {
+  margin-left: 130px;
+}
+
+.issued-date {
+  margin-left: 265px;
+}
+
+/* Issue Date */
+.issue-date-section {
+  margin-top: 15px;
+}
+
+/* BCSEA Center Watermark */
+.bcsea-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* QR Code */
+.qr_container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+/* Marksheet Footer */
+.marksheet-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px 30px;
+  border-top: 1px solid #000;
+  background-color: #fff;
+}
+
+.marksheet-footer img {
+  width: 100px;
+  height: 70px;
+}
+
+.marksheet-footer p {
+  font-size: 16px;
+  text-align: center;
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+
+/* Subject Scores with Words */
+.mark-with-words .numeric {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.mark-with-words .words {
+  font-size: 13px;
+}
+
+
+
+/* @media (max-width: 850px) {
+  .marksheet {
+    width: 100%;
+  }
+  
+  .validation_results .d-flex {
+    flex-direction: column;
+    gap: 5px;
+  }
+} */

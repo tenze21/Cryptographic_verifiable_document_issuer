@@ -16,7 +16,7 @@ function MarksheetViewPage() {
       <header className="validation_results">
         <h1>
           Issued by{" "}
-          <span>Bhutan Council for school Examinations and Assessment</span>
+          <span className="issuer">Bhutan Council for school Examinations and Assessment</span>
         </h1>
         <div className="d-flex align-items-center gap-5">
           <p>
@@ -40,27 +40,29 @@ function MarksheetViewPage() {
         </button>
         <div className="marksheet" ref={contentRef}>
           <div className="marksheet-header">
-            {/* Include the header section here */}
-            <p></p>
+            <img src="../seal.png" alt="BCSEA Seal" className="header-logo" />
+            <div className="dzongkha-text">འབྲུག་གི་སློབ་གྲའི་ཆོས་རྒྱུགས་དང་བརྟག་ཞིབ་ཚོགས་སྡེ།</div>
+            <p className="english-text">Bhutan Council for School Examinations and Assessment</p>
+            <p className="dzongkha-text">མཐར་འཁྱོལ་ལག་ཁྱེར།</p>
+            <p className="english-text">PASS CERTIFICATE</p>
           </div>
           <div className="marksheet-body">
-            <p>
-              Certified that {marksheetData.data.student.name.toUpperCase()}
+            <p className="student-detail">
+              <span>Certified that</span> <span>{marksheetData.data.student.name.toUpperCase()}</span>  
             </p>
-            <p>Index No. {marksheetData.data.student.indexNo}</p>
-            <p>of {marksheetData.data.student.school.toUpperCase()}</p>
+            <p className="student-detail"><span>Index Number</span> <span>{marksheetData.data.student.indexNo}</span></p>
+            <p className="student-detail"><span>of</span> <span>{marksheetData.data.student.school.toUpperCase()}</span></p>
             {marksheetData.data.result === "PASS CERTIFICATE AWARDED" ? (
-              <p>was awarded a PASS CERTIFICATE</p>
+              <p className="student-detail"><span>was awarded a</span> <span>PASS CERTIFICATE</span></p>
             ) : (
-              <p>was not awarded a PASS CERTIFICATE</p>
+              <p className="student-detail"><span>was not awarded a</span> <span>PASS CERTIFICATE</span></p>
             )}
+            <h1 className="fs-3">འབྲུག་འབྲིང་རིམ་གོང་མའི་ཤེས་ཡོན་ལག་ཁྱེར།</h1>
             <h1>BHUTAN HIGHER SECONDARY EDUCATION CERTIFICATE (CLASS XII)</h1>
             <table>
               <thead>
                 <tr>
-                  <th>
-                    <span>Subjects</span> <span>External Examination</span>
-                  </th>
+                  <th>Subjects</th>
                   <th>Percentage Marks</th>
                 </tr>
               </thead>
@@ -80,29 +82,28 @@ function MarksheetViewPage() {
             </table>
             <div>
               <p>
-                <strong>DATE OF BIRTH</strong> {marksheetData.data.student.dob}{" "}
-                <span className="text-muted">(yyyy/mm/dd)</span>
+                <strong>DATE OF BIRTH</strong> <span className="dob">{marksheetData.data.student.dob}</span>
+                {/* <span className="text-muted">(yyyy/mm/dd)</span> */}
               </p>
               <p>
                 <strong>RESULT</strong>
-                {marksheetData.data.result}
+                <span className="resultd">{marksheetData.data.result}</span>
               </p>
               <div>
                 <p>NOTE</p>
-                <ol>
+                <ol className="note-list">
                   <li>The pass mark for each subject is 40%.</li>
                   <li>No divisions are awarded.</li>
                 </ol>
               </div>
-              <p>Internal Assessment</p>
               <p>
                 <strong>SUPW & COMMUNITY SERVICE</strong>{" "}
-                {marksheetData.data.supw}
+                <span className="supw-grade fw-bold">{marksheetData.data.supw}
+                </span>
               </p>
               <p>
                 <strong>ISSUED ON</strong>
-                {marksheetData.updatedAt.split("T")[0]}{" "}
-                <span className="text-muted">(yyyy/mm/dd)</span>{" "}
+                <span className="issued-date fw-bold">{marksheetData.updatedAt.split("T")[0]}{" "}</span>
               </p>
             </div>
             <div className="qr_container">
