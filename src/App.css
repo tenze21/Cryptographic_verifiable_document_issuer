@@ -367,12 +367,13 @@ body {
   height: 990px;
   margin: 0 auto;
   background: linear-gradient(135deg, #cce0f5 0%, #fdead1 100%);
-  border: 1px solid #000;
+  border: 2px solid #000;
   position: relative;
   color: #000;
   font-family: 'Times New Roman', Times, serif;
   overflow: hidden;
   box-sizing: border-box;
+  margin-bottom: 4rem;
 }
 
 /* Marksheet Header */
@@ -405,9 +406,9 @@ body {
 }
 .dzongkha-text {
   font-family: "Jomolhari", "Noto Sans Tibetan", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 2px;
-  font-weight: normal;
+  font-weight: 500;
 
 }
 
@@ -574,11 +575,12 @@ table td:last-child {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   opacity: 0.9;
   z-index: 1;
   pointer-events: none;
+  border-radius: 50%;
 }
 
 /* QR Code */

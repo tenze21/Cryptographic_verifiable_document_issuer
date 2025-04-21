@@ -42,7 +42,7 @@ function MarksheetViewPage() {
           <div className="marksheet-header">
             {<div className="marksheet-header">
             <img src="../seal.png" alt="BCSEA Seal" className="header-logo" />
-            <div className="dzongkha-text">འབྲུག་གི་སློབ་གྲྦའི་ཆོས་རྒྱུགས་དང་བརྟག་ཞིབ་ཚོགས་སྡེ།
+            <div className="dzongkha-text">འབྲུག་གི་སློབ་གྲའི་ཆོས་རྒྱུགས་དང་བརྟག་ཞིབ་ཚོགས་སྡེ།
             </div>
             <div className="bcsea-title">
               Bhutan Council for School Examinations and Assessment
@@ -50,10 +50,8 @@ function MarksheetViewPage() {
             <div className="dzongkha-text">འབྲུག་འབྲིང་རིམ་གྱི་ཤེས་ཡོན་ལག་ཁྱེར།།</div>
             <div className="certificate-title">
               BHUTAN CERTIFICATE OF SECONDARY EDUCATION (CLASS X) <br/> <span className="dzongkha-text">སྐུགས་ཐོ།</span> <br/>
-              <span>STATEMENT OF MARKS</span><span className="year">2019</span>
+              <span>STATEMENT OF MARKS</span>
             </div>
-            <div className="document-number">No. BCSEA 19 □□1795 </div>
-            <div className="serial-number">SI. No. : 000203</div>
           </div>}
           </div>
           <div className="marksheet-body">
@@ -127,7 +125,7 @@ function MarksheetViewPage() {
             </div>
 
             <img 
-              src="./bcsea_logo_green.png" 
+              src="./bcsea_logo_ms.jpeg" 
               alt="BCSEA Logo" 
               className="bcsea-watermark" 
             />
