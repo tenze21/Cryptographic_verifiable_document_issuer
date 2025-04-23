@@ -66,7 +66,7 @@ function CompileMarksheetsPage() {
 
     return (
       <div className="compile-marksheets">
-        <Sidebar />
+        <Sidebar state={0}/>
         <div className="content">
           {isLoading ? (
             <Loader />

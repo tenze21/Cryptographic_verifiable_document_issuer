@@ -195,7 +195,7 @@ function Arts() {
 
   return (
     <div className="wrapper">
-      <Sidebar />
+      <Sidebar state={3}/>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <h1 className="d-block mx-auto mt-2 mb-3 fs-2">Class XII Arts</h1>
         <form className="marksheet-form" onSubmit={submitHandler}>

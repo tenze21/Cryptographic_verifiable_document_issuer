@@ -140,6 +140,9 @@ main {
 }
 footer {
   background-color: var(--blue-dark);
+  div{
+    gap: 5rem;
+  }
 }
 
 .custom-form {
@@ -205,6 +208,21 @@ footer {
         display: block;
         transition: all 0.3s ease-in-out;
         font-weight: 600;
+        color: var(--white);
+      }
+    }
+    .sidebar-link{
+      transition: all 0.5s ease-out;
+      &:hover {
+        background-color: var(--orange);
+        a {
+          color: var(--white);
+        }
+      }
+    }
+    .active-sidebar-link{
+      background-color: var(--orange);
+      a {
         color: var(--white);
       }
     }

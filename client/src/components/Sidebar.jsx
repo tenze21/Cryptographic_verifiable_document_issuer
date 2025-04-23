@@ -3,12 +3,12 @@ import { MdArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropup } from "react-icons/io";
 import { useState } from "react";
 
-function Sidebar() {
+function Sidebar({state}) {
   const [show, setShow] = useState(true);
   return (
     <nav className="sidebar">
       <ul>
-        <li>
+        <li className={state==0? "active-sidebar-link": "sidebar-link"}>
           <Link to="/compile-marksheets">Compile Marksheets</Link>
         </li>
         <li>
@@ -21,13 +21,13 @@ function Sidebar() {
             )}
           </p>
           <ul className={`dropdown ${show ? "show" : ""}`}>
-            <li>
+            <li className={state==1? "active-sidebar-link": "sidebar-link"}>
               <Link to="/science">Science</Link>
             </li>
-            <li>
+            <li className={state==2? "active-sidebar-link": "sidebar-link"}>
               <Link to="/commerce">Commerce</Link>
             </li>
-            <li>
+            <li className={state==3? "active-sidebar-link": "sidebar-link"}>
               <Link to="/arts">Arts</Link>
             </li>
           </ul>
